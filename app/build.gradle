@@ -22,5 +22,16 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
+    //Dependencia para la biblioteca de soporte
     compile "com.android.support:appcompat-v7:21.0.+"
+
+    //Dependencias para los nuevos componentes en Material Design
+    compile 'com.android.support:cardview-v7:21.0.+'
+    compile 'com.android.support:recyclerview-v7:21.0.+'
+
+    //Dependencia para el cliente HTTP que se conectará a internet
+    compile 'com.mcxiaoke.volley:library:1.0.+'
+
+    //Dependencia para el cliente encargado de descargar imágenes desde el servidor web
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }

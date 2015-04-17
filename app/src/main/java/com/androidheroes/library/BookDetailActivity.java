@@ -1,17 +1,24 @@
 package com.androidheroes.library;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
-public class BookDetailActivity extends Activity {
+public class BookDetailActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
+
+        Intent intent = getIntent();
+
+        Toast.makeText(this, intent.getIntExtra("book_id", -1) + "", Toast.LENGTH_SHORT).show();
+
     }
 
 

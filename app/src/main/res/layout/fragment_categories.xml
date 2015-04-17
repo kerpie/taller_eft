@@ -1,16 +1,34 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.androidheroes.library.CategoriesFragment">
+    android:orientation="vertical"
+    tools:context="com.androidheroes.library.CategoriesFragment"
+    android:background="@color/light_gray">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- Cargador para mostrar mientras se descarga la informacioón -->
+    <ProgressBar
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/categories_list_loader"
+        android:layout_centerInParent="true"/>
+
+    <!-- Para poder usar este objeto no te olvides incluir la dependencia en el archivo build.gradle -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/categories_list"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/categories_list_loader">
+    </android.support.v7.widget.RecyclerView>
+
+    <!-- Mensaje de error a desplegar si no obtiene respuesta del servidor -->
     <TextView
-        android:id="@+id/dummy_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:layout_gravity="center"
+        android:id="@+id/categories_list_error_message"
+        android:text="@string/error_message_for_categories_list"
+        android:layout_below="@+id/categories_list"
         android:gravity="center"
-        android:background="#FFF"/>
-
-</FrameLayout>
+        android:layout_gravity="center"/>
+</RelativeLayout>

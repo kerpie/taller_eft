@@ -7,13 +7,14 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.androidheroes.library.BookIndex"
-        android:id="@+id/books_fragment"/>
+        android:name="com.androidheroes.library.BookIndexFragment"
+        android:id="@+id/books_fragment"
+        android:tag="book_index_tag"/>
     <fragment
         android:layout_width="240dp"
         android:layout_height="match_parent"
         android:name="com.androidheroes.library.CategoriesFragment"
         android:id="@+id/categories_fragment"
         android:layout_gravity="start"
-        android:background="#111"/>
+        android:tag="category_index_tag"/>
 </android.support.v4.widget.DrawerLayout>

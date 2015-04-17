@@ -7,4 +7,9 @@
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_book_detail">BookDetailActivity</string>
+
+    <string name="error_message_for_categories_list">No se pudo cargar los datos del servidor, pulse aquí para intentar nuevamente</string>
+    <string name="error_message_for_book_index">No se pudo cargar los libros del servidor, pulse aquí para intentar nuevamente</string>
+
+    <string name="choose_category_text">Elige una categoría para mostrar los libros</string>
 </resources>

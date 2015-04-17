@@ -1,19 +1,31 @@
 package com.androidheroes.library;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 
-public class MainActivity extends Activity implements CategoriesFragment.OnCategorySelected, BookIndex.OnBookSelected{
+public class MainActivity extends ActionBarActivity implements CategoriesFragment.OnCategorySelected, BookIndexFragment.OnBookSelected{
+
+    BookIndexFragment book_index;
+
+    FragmentManager fragment_manager;
+    FragmentTransaction fragment_transaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        fragment_manager = getSupportFragmentManager();
+        fragment_transaction = fragment_manager.beginTransaction();
+
+        book_index = (BookIndexFragment) fragment_manager.findFragmentById(R.id.books_fragment);
     }
 
 
@@ -40,13 +52,16 @@ public class MainActivity extends Activity implements CategoriesFragment.OnCateg
     }
 
     @Override
-    public void onCategorySelected() {
-        Toast.makeText(this, "Me han pulsado!", Toast.LENGTH_SHORT).show();
+    public void onCategorySelected(int category_id) {
+        book_index.makeRequest(category_id);
     }
 
     @Override
-    public void onBookSelected() {
+    public void onBookSelected(int book_id) {
         Intent intent = new Intent(MainActivity.this, BookDetailActivity.class);
+
+        intent.putExtra("book_id", book_id);
+
         startActivity(intent);
     }
 }

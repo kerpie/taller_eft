@@ -1,15 +1,40 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.androidheroes.library.BookIndex">
+    android:layout_height="match_parent" tools:context="com.androidheroes.library.BookIndexFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- Este mensaje se muestra al iniciar la aplicación porque no hay una categoría elegida inicialmente -->
     <TextView
-        android:id="@+id/book_dummy_text"
+        android:id="@+id/book_index_choose_category_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
-        android:background="#00b0e3"
-        android:textColor="#FFFFFF"
+        android:text="@string/choose_category_text"
+        android:textColor="@color/dark_gray"
+        android:layout_centerInParent="true"
         android:padding="10dp"/>
 
-</FrameLayout>
+    <!-- Cargador para mostrar mientras se descarga la informacioón -->
+    <ProgressBar
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/book_list_loader"
+        android:layout_centerInParent="true"/>
+
+    <!-- Para poder usar este objeto no te olvides incluir la dependencia en el archivo build.gradle -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/book_list"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/book_list_loader">
+    </android.support.v7.widget.RecyclerView>
+
+    <!-- Mensaje de error a desplegar si no obtiene respuesta del servidor -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/book_list_error_message"
+        android:text="@string/error_message_for_book_index"
+        android:layout_below="@+id/book_list"
+        android:gravity="center"
+        android:layout_gravity="center"/>
+
+</RelativeLayout>
